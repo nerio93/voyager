@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\FormFields;
+namespace Lisandrop05\Voyager\FormFields;
 
 class TimeHandler extends AbstractHandler
 {

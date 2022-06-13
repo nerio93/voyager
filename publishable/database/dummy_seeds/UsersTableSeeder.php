@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use TCG\Voyager\Models\Role;
-use TCG\Voyager\Models\User;
+use Lisandrop05\Voyager\Models\Role;
+use Lisandrop05\Voyager\Models\User;
 
 class UsersTableSeeder extends Seeder
 {

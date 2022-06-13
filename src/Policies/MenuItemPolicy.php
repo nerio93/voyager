@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Policies;
+namespace Lisandrop05\Voyager\Policies;
 
-use TCG\Voyager\Contracts\User;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Contracts\User;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class MenuItemPolicy extends BasePolicy
 {

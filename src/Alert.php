@@ -1,8 +1,8 @@
 <?php
 
-namespace TCG\Voyager;
+namespace Lisandrop05\Voyager;
 
-use TCG\Voyager\Alert\Components\ComponentInterface;
+use Lisandrop05\Voyager\Alert\Components\ComponentInterface;
 
 class Alert
 {

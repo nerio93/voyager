@@ -9,7 +9,7 @@ First we create a new class in our project \(it doesn't matter where it is place
 
 namespace App\FormFields;
 
-use TCG\Voyager\FormFields\AbstractHandler;
+use Lisandrop05\Voyager\FormFields\AbstractHandler;
 
 class NumberFormField extends AbstractHandler
 {
@@ -51,7 +51,7 @@ When we are done with our view, we will tell Voyager that we have a new form fie
 
 namespace App\Providers;
 
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Facades\Voyager;
 use App\FormFields\NumberFormField;
 use Illuminate\Support\ServiceProvider;
 

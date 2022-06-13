@@ -1,11 +1,11 @@
 <?php
 
-namespace TCG\Voyager\Models;
+namespace Lisandrop05\Voyager\Models;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use TCG\Voyager\Contracts\User as UserContract;
-use TCG\Voyager\Traits\VoyagerUser;
+use Lisandrop05\Voyager\Contracts\User as UserContract;
+use Lisandrop05\Voyager\Traits\VoyagerUser;
 
 class User extends Authenticatable implements UserContract
 {

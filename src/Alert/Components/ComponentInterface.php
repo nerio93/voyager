@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Alert\Components;
+namespace Lisandrop05\Voyager\Alert\Components;
 
 interface ComponentInterface
 {

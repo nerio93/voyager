@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Permission;
-use TCG\Voyager\Models\Role;
+use Lisandrop05\Voyager\Models\Permission;
+use Lisandrop05\Voyager\Models\Role;
 
 class PermissionRoleTableSeeder extends Seeder
 {

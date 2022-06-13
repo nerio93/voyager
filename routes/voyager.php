@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Str;
-use TCG\Voyager\Events\Routing;
-use TCG\Voyager\Events\RoutingAdmin;
-use TCG\Voyager\Events\RoutingAdminAfter;
-use TCG\Voyager\Events\RoutingAfter;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Events\Routing;
+use Lisandrop05\Voyager\Events\RoutingAdmin;
+use Lisandrop05\Voyager\Events\RoutingAdminAfter;
+use Lisandrop05\Voyager\Events\RoutingAfter;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------

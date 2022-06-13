@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager;
+namespace Lisandrop05\Voyager;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Collection;
@@ -17,19 +17,19 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageServiceProvider;
 use Larapack\DoctrineSupport\DoctrineSupportServiceProvider;
-use TCG\Voyager\Events\FormFieldsRegistered;
-use TCG\Voyager\Facades\Voyager as VoyagerFacade;
-use TCG\Voyager\FormFields\After\DescriptionHandler;
-use TCG\Voyager\Http\Middleware\VoyagerAdminMiddleware;
-use TCG\Voyager\Models\MenuItem;
-use TCG\Voyager\Models\Setting;
-use TCG\Voyager\Policies\BasePolicy;
-use TCG\Voyager\Policies\MenuItemPolicy;
-use TCG\Voyager\Policies\SettingPolicy;
-use TCG\Voyager\Providers\VoyagerDummyServiceProvider;
-use TCG\Voyager\Providers\VoyagerEventServiceProvider;
-use TCG\Voyager\Seed;
-use TCG\Voyager\Translator\Collection as TranslatorCollection;
+use Lisandrop05\Voyager\Events\FormFieldsRegistered;
+use Lisandrop05\Voyager\Facades\Voyager as VoyagerFacade;
+use Lisandrop05\Voyager\FormFields\After\DescriptionHandler;
+use Lisandrop05\Voyager\Http\Middleware\VoyagerAdminMiddleware;
+use Lisandrop05\Voyager\Models\MenuItem;
+use Lisandrop05\Voyager\Models\Setting;
+use Lisandrop05\Voyager\Policies\BasePolicy;
+use Lisandrop05\Voyager\Policies\MenuItemPolicy;
+use Lisandrop05\Voyager\Policies\SettingPolicy;
+use Lisandrop05\Voyager\Providers\VoyagerDummyServiceProvider;
+use Lisandrop05\Voyager\Providers\VoyagerEventServiceProvider;
+use Lisandrop05\Voyager\Seed;
+use Lisandrop05\Voyager\Translator\Collection as TranslatorCollection;
 
 class VoyagerServiceProvider extends ServiceProvider
 {
@@ -221,7 +221,7 @@ class VoyagerServiceProvider extends ServiceProvider
         $components = ['title', 'text', 'button'];
 
         foreach ($components as $component) {
-            $class = 'TCG\\Voyager\\Alert\\Components\\'.ucfirst(Str::camel($component)).'Component';
+            $class = 'Lisandrop05\\Voyager\\Alert\\Components\\'.ucfirst(Str::camel($component)).'Component';
 
             $this->app->bind("voyager.alert.components.{$component}", $class);
         }
@@ -339,7 +339,7 @@ class VoyagerServiceProvider extends ServiceProvider
         foreach ($formFields as $formField) {
             $class = Str::studly("{$formField}_handler");
 
-            VoyagerFacade::addFormField("TCG\\Voyager\\FormFields\\{$class}");
+            VoyagerFacade::addFormField("Lisandrop05\\Voyager\\FormFields\\{$class}");
         }
 
         VoyagerFacade::addAfterFormField(DescriptionHandler::class);

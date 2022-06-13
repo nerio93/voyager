@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Database\Types\Common;
+namespace Lisandrop05\Voyager\Database\Types\Common;
 
 use Doctrine\DBAL\Types\DecimalType as DoctrineDecimalType;
 

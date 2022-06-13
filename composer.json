@@ -38,6 +38,11 @@
             "TGC\\Voyager\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "TGC\\Voyager\\Tests\\": "tests/"
+        }
+    },
     "minimum-stability": "stable",
     "extra": {
         "laravel": {

@@ -1,26 +1,26 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
-use TCG\Voyager\Events\BreadAdded;
-use TCG\Voyager\Events\BreadDataAdded;
-use TCG\Voyager\Events\BreadDataDeleted;
-use TCG\Voyager\Events\BreadDataUpdated;
-use TCG\Voyager\Events\BreadDeleted;
-use TCG\Voyager\Events\BreadImagesDeleted;
-use TCG\Voyager\Events\BreadUpdated;
-use TCG\Voyager\Events\FileDeleted;
-use TCG\Voyager\Events\MediaFileAdded;
-use TCG\Voyager\Events\TableAdded;
-use TCG\Voyager\Events\TableDeleted;
-use TCG\Voyager\Events\TableUpdated;
-use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Models\Page;
+use Lisandrop05\Voyager\Events\BreadAdded;
+use Lisandrop05\Voyager\Events\BreadDataAdded;
+use Lisandrop05\Voyager\Events\BreadDataDeleted;
+use Lisandrop05\Voyager\Events\BreadDataUpdated;
+use Lisandrop05\Voyager\Events\BreadDeleted;
+use Lisandrop05\Voyager\Events\BreadImagesDeleted;
+use Lisandrop05\Voyager\Events\BreadUpdated;
+use Lisandrop05\Voyager\Events\FileDeleted;
+use Lisandrop05\Voyager\Events\MediaFileAdded;
+use Lisandrop05\Voyager\Events\TableAdded;
+use Lisandrop05\Voyager\Events\TableDeleted;
+use Lisandrop05\Voyager\Events\TableUpdated;
+use Lisandrop05\Voyager\Models\DataType;
+use Lisandrop05\Voyager\Models\Page;
 
 class EventTest extends TestCase
 {

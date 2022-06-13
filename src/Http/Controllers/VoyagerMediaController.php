@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Http\Controllers;
+namespace Lisandrop05\Voyager\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-use TCG\Voyager\Events\MediaFileAdded;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Events\MediaFileAdded;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class VoyagerMediaController extends Controller
 {

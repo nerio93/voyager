@@ -35,7 +35,7 @@ Below we will take a deep dive into the configuration file and give a detailed d
 <?php
 
 'controllers' => [
-    'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+    'namespace' => 'Lisandrop05\\Voyager\\Http\\Controllers',
 ],
 ```
 
@@ -143,9 +143,9 @@ Read more about multilanguage [here](../core-concepts/multilanguage.md).
         ],
     ],
     'widgets' => [
-        'TCG\\Voyager\\Widgets\\UserDimmer',
-        'TCG\\Voyager\\Widgets\\PostDimmer',
-        'TCG\\Voyager\\Widgets\\PageDimmer',
+        'Lisandrop05\\Voyager\\Widgets\\UserDimmer',
+        'Lisandrop05\\Voyager\\Widgets\\PostDimmer',
+        'Lisandrop05\\Voyager\\Widgets\\PageDimmer',
     ],
 ],
 ```

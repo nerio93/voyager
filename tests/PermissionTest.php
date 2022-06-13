@@ -1,10 +1,10 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
 use Illuminate\Support\Facades\Auth;
-use TCG\Voyager\Models\Permission;
-use TCG\Voyager\Models\Role;
+use Lisandrop05\Voyager\Models\Permission;
+use Lisandrop05\Voyager\Models\Role;
 
 class PermissionTest extends TestCase
 {

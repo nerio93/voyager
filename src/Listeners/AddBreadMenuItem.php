@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Listeners;
+namespace Lisandrop05\Voyager\Listeners;
 
-use TCG\Voyager\Events\BreadAdded;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Events\BreadAdded;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class AddBreadMenuItem
 {

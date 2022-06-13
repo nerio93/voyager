@@ -1,11 +1,11 @@
 <?php
 
-namespace TCG\Voyager\Providers;
+namespace Lisandrop05\Voyager\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use TCG\Voyager\Events;
-use TCG\Voyager\Listeners;
+use Lisandrop05\Voyager\Events;
+use Lisandrop05\Voyager\Listeners;
 
 class VoyagerEventServiceProvider extends ServiceProvider
 {
