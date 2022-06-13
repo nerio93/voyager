@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Http\Controllers\ContentTypes;
+namespace Lisandrop05\Voyager\Http\Controllers\ContentTypes;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;

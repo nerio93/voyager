@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Database\Types\Common;
+namespace Lisandrop05\Voyager\Database\Types\Common;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use TCG\Voyager\Database\Types\Type;
+use Lisandrop05\Voyager\Database\Types\Type;
 
 class TextType extends Type
 {

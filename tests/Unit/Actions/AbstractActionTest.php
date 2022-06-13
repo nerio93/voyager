@@ -1,25 +1,25 @@
 <?php
 
-namespace TCG\Voyager\Tests\Unit\Actions;
+namespace Lisandrop05\Voyager\Tests\Unit\Actions;
 
-use TCG\Voyager\Actions\AbstractAction;
-use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Models\User;
-use TCG\Voyager\Tests\TestCase;
+use Lisandrop05\Voyager\Actions\AbstractAction;
+use Lisandrop05\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Models\User;
+use Lisandrop05\Voyager\Tests\TestCase;
 
 class AbstractActionTest extends TestCase
 {
     /**
      * The users DataType instance.
      *
-     * @var \TCG\Voyager\Models\DataType
+     * @var \Lisandrop05\Voyager\Models\DataType
      */
     protected $userDataType;
 
     /**
      * A dummy user instance.
      *
-     * @var \TCG\Voyager\Models\User
+     * @var \Lisandrop05\Voyager\Models\User
      */
     protected $user;
 

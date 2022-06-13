@@ -1,13 +1,13 @@
 <?php
 
-namespace TCG\Voyager\Models;
+namespace Lisandrop05\Voyager\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Traits\Resizable;
-use TCG\Voyager\Traits\Translatable;
+use Lisandrop05\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Traits\Resizable;
+use Lisandrop05\Voyager\Traits\Translatable;
 
 class Post extends Model
 {

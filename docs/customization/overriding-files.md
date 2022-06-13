@@ -30,7 +30,7 @@ You can override the controller for a single BREAD by creating a controller whic
 
 namespace App\Http\Controllers;
 
-class VoyagerCategoriesController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
+class VoyagerCategoriesController extends \Lisandrop05\Voyager\Http\Controllers\VoyagerBaseController
 {
     //...
 }
@@ -86,7 +86,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Events\Dispatcher;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -105,7 +105,7 @@ The next step is to create your model and make it extend the original model. In 
 
 namespace App;
 
-class DataRow extends \TCG\Voyager\Models\DataRow
+class DataRow extends \Lisandrop05\Voyager\Models\DataRow
 {
     // ...
 }

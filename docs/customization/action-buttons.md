@@ -13,7 +13,7 @@ You can add your own buttons very easily. First we will create an Action-class w
 
 namespace App\Actions;
 
-use TCG\Voyager\Actions\AbstractAction;
+use Lisandrop05\Voyager\Actions\AbstractAction;
 
 class MyAction extends AbstractAction
 {
@@ -55,7 +55,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Events\Dispatcher;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class AppServiceProvider extends ServiceProvider
 {

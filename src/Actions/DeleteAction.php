@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Actions;
+namespace Lisandrop05\Voyager\Actions;
 
 class DeleteAction extends AbstractAction
 {

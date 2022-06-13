@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Models;
+namespace Lisandrop05\Voyager\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use TCG\Voyager\Events\SettingUpdated;
+use Lisandrop05\Voyager\Events\SettingUpdated;
 
 class Setting extends Model
 {

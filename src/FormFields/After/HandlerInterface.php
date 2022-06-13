@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\FormFields\After;
+namespace Lisandrop05\Voyager\FormFields\After;
 
 interface HandlerInterface
 {

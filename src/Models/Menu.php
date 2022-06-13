@@ -1,12 +1,12 @@
 <?php
 
-namespace TCG\Voyager\Models;
+namespace Lisandrop05\Voyager\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use TCG\Voyager\Events\MenuDisplay;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Events\MenuDisplay;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 /**
  * @todo: Refactor this class by using something like MenuBuilder Helper.

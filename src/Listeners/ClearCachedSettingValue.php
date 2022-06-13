@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Listeners;
+namespace Lisandrop05\Voyager\Listeners;
 
 use Cache;
-use TCG\Voyager\Events\SettingUpdated;
+use Lisandrop05\Voyager\Events\SettingUpdated;
 
 class ClearCachedSettingValue
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
 use Illuminate\Support\Facades\Auth;
-use TCG\Voyager\Models\Category;
-use TCG\Voyager\Models\Post;
+use Lisandrop05\Voyager\Models\Category;
+use Lisandrop05\Voyager\Models\Post;
 
 class PostTest extends TestCase
 {

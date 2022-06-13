@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager\Traits;
+namespace Lisandrop05\Voyager\Traits;
 
 use Illuminate\Support\Facades\DB;
 

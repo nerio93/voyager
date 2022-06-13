@@ -1,8 +1,8 @@
 <?php
 
-namespace TCG\Voyager\Tests\Feature;
+namespace Lisandrop05\Voyager\Tests\Feature;
 
-use TCG\Voyager\Tests\TestCase;
+use Lisandrop05\Voyager\Tests\TestCase;
 
 class SeederTest extends TestCase
 {

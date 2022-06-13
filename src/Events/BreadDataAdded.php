@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Events;
+namespace Lisandrop05\Voyager\Events;
 
 use Illuminate\Queue\SerializesModels;
-use TCG\Voyager\Models\DataType;
+use Lisandrop05\Voyager\Models\DataType;
 
 class BreadDataAdded
 {

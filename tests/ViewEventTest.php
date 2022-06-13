@@ -1,8 +1,8 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class ViewEventTest extends TestCase
 {

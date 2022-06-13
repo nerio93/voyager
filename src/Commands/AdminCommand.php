@@ -1,13 +1,13 @@
 <?php
 
-namespace TCG\Voyager\Commands;
+namespace Lisandrop05\Voyager\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
-use TCG\Voyager\Facades\Voyager;
+use Lisandrop05\Voyager\Facades\Voyager;
 
 class AdminCommand extends Command
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Database\Types\Sqlite;
+namespace Lisandrop05\Voyager\Database\Types\Sqlite;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use TCG\Voyager\Database\Types\Type;
+use Lisandrop05\Voyager\Database\Types\Type;
 
 class RealType extends Type
 {

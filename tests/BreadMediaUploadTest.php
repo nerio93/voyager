@@ -1,13 +1,13 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use TCG\Voyager\Models\DataRow;
-use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Models\Page;
+use Lisandrop05\Voyager\Models\DataRow;
+use Lisandrop05\Voyager\Models\DataType;
+use Lisandrop05\Voyager\Models\Page;
 
 class BreadMediaUploadTest extends TestCase
 {

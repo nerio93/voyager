@@ -1,13 +1,13 @@
 <?php
 
-namespace TCG\Voyager\Tests;
+namespace Lisandrop05\Voyager\Tests;
 
 use Doctrine\DBAL\Schema\SchemaException;
 use Illuminate\Support\Facades\Auth;
-use TCG\Voyager\Database\Schema\SchemaManager;
-use TCG\Voyager\Database\Schema\Table;
-use TCG\Voyager\Database\Types\Type;
-use TCG\Voyager\Traits\AlertsMessages;
+use Lisandrop05\Voyager\Database\Schema\SchemaManager;
+use Lisandrop05\Voyager\Database\Schema\Table;
+use Lisandrop05\Voyager\Database\Types\Type;
+use Lisandrop05\Voyager\Traits\AlertsMessages;
 
 class DatabaseTest extends TestCase
 {

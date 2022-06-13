@@ -1,6 +1,6 @@
 <?php
 
-namespace TCG\Voyager;
+namespace Lisandrop05\Voyager;
 
 class Seed
 {

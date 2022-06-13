@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Events;
+namespace Lisandrop05\Voyager\Events;
 
 use Illuminate\Queue\SerializesModels;
-use TCG\Voyager\Database\Schema\Table;
+use Lisandrop05\Voyager\Database\Schema\Table;
 
 class TableAdded
 {

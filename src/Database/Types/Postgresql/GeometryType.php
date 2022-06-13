@@ -1,9 +1,9 @@
 <?php
 
-namespace TCG\Voyager\Database\Types\Postgresql;
+namespace Lisandrop05\Voyager\Database\Types\Postgresql;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use TCG\Voyager\Database\Types\Type;
+use Lisandrop05\Voyager\Database\Types\Type;
 
 class GeometryType extends Type
 {
