@@ -35,20 +35,20 @@
     },
     "autoload": {
         "psr-4": {
-            "TGC\\Voyager\\": "src/"
+            "Lisandrop05\\Voyager\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TGC\\Voyager\\Tests\\": "tests/"
+            "Lisandrop05\\Voyager\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
-                "TGC\\Voyager\\VoyagerServiceProvider",
-                "TGC\\Voyager\\Providers\\VoyagerDummyServiceProvider"
+                "Lisandrop05\\Voyager\\VoyagerServiceProvider",
+                "Lisandrop05\\Voyager\\Providers\\VoyagerDummyServiceProvider"
             ]
         }
     },
