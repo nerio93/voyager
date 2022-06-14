@@ -15,7 +15,14 @@
                 @endphp
 
                 @if(isset($query))
-                    <p>{{ $query->{$options->label} }}</p>
+                    @if($options->label == "path" && $options->table == "zip")
+                        @include('voyager::multilingual.input-hidden-bread-browse')
+                        <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) }}" target="_blank">
+                            Download
+                        </a>
+                    @else
+                        <p>{{ $query->{$options->label} }}</p>
+                    @endif
                 @else
                     <p>{{ __('voyager::generic.no_results') }}</p>
                 @endif
