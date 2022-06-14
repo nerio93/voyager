@@ -96,7 +96,7 @@
                     @if(empty($selected_values))
                         <p>{{ __('voyager::generic.no_results') }}</p>
                     @else
-                        @if ($options->table == "document" && $options->type == "hasMany" && $options->column == "zip_id")
+                        @if (($options->table == "video_files" && $options->type == "hasMany" && $options->column == "id_solicitud") || ($options->table == "document" && $options->type == "hasMany" && $options->column == "zip_id"))
                             <ul>
                                 @foreach($selected_values as $selected_value)
                                     <li>
