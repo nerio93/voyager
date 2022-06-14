@@ -23,9 +23,9 @@
             @endif
         @endcan
         @can('browse', $dataTypeContent)
-        <a href="{{ route('voyager.'.$dataType->slug.'.index') }}" class="btn btn-warning">
-            <i class="glyphicon glyphicon-list"></i> <span class="hidden-xs hidden-sm">{{ __('voyager::generic.return_to_list') }}</span>
-        </a>
+            <a href="{{ route('voyager.'.$dataType->slug.'.index') }}" class="btn btn-warning">
+                <i class="glyphicon glyphicon-list"></i> <span class="hidden-xs hidden-sm">{{ __('voyager::generic.return_to_list') }}</span>
+            </a>
         @endcan
     </h1>
     @include('voyager::multilingual.language-selector')
@@ -40,9 +40,9 @@
                     <!-- form start -->
                     @foreach($dataType->readRows as $row)
                         @php
-                        if ($dataTypeContent->{$row->field.'_read'}) {
-                            $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_read'};
-                        }
+                            if ($dataTypeContent->{$row->field.'_read'}) {
+                                $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_read'};
+                            }
                         @endphp
                         <div class="panel-heading" style="border-bottom:0;">
                             <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
@@ -67,7 +67,7 @@
                                          src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                                 @endif
                             @elseif($row->type == 'relationship')
-                                 @include('voyager::formfields.relationship', ['view' => 'read', 'options' => $row->details])
+                                @include('voyager::formfields.relationship', ['view' => 'read', 'options' => $row->details])
                             @elseif($row->type == 'select_dropdown' && property_exists($row->details, 'options') &&
                                     !empty($row->details->options->{$dataTypeContent->{$row->field}})
                             )
@@ -99,12 +99,12 @@
                             @elseif($row->type == 'checkbox')
                                 @if(property_exists($row->details, 'on') && property_exists($row->details, 'off'))
                                     @if($dataTypeContent->{$row->field})
-                                    <span class="label label-info">{{ $row->details->on }}</span>
+                                        <span class="label label-info">{{ $row->details->on }}</span>
                                     @else
-                                    <span class="label label-primary">{{ $row->details->off }}</span>
+                                        <span class="label label-primary">{{ $row->details->off }}</span>
                                     @endif
                                 @else
-                                {{ $dataTypeContent->{$row->field} }}
+                                    {{ $dataTypeContent->{$row->field} }}
                                 @endif
                             @elseif($row->type == 'color')
                                 <span class="badge badge-lg" style="background-color: {{ $dataTypeContent->{$row->field} }}">{{ $dataTypeContent->{$row->field} }}</span>
@@ -116,15 +116,22 @@
                             @elseif($row->type == 'file')
                                 @if(json_decode($dataTypeContent->{$row->field}))
                                     @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
-                                        <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}">
+                                        <a  target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}">
                                             {{ $file->original_name ?: '' }}
                                         </a>
                                         <br/>
                                     @endforeach
                                 @elseif($dataTypeContent->{$row->field})
-                                    <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">
-                                        {{ __('voyager::generic.download') }}
-                                    </a>
+                                    @if ($row->field !== "path")
+                                        <a  target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">
+                                            {{ __('voyager::generic.download') }}
+                                        </a>
+                                    @else
+                                        {{basename($dataTypeContent->{$row->field})}}
+                                        (<a  target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($dataTypeContent->{$row->field}) ?: '' }}">
+                                            {{ __('voyager::generic.download') }}
+                                        </a>)
+                                    @endif
                                 @endif
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
