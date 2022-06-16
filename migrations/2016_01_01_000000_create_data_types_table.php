@@ -12,6 +12,7 @@ class CreateDataTypesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('data_types');
         // Create table for storing roles
         Schema::create('data_types', function (Blueprint $table) {
             $table->increments('id');

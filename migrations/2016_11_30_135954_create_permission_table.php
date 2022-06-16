@@ -13,6 +13,7 @@ class CreatePermissionTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('permissions');
         Schema::create('permissions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('key')->index();

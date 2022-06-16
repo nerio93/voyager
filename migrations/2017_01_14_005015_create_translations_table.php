@@ -13,6 +13,7 @@ class CreateTranslationsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('translations');
         Schema::create('translations', function (Blueprint $table) {
             $table->increments('id');
 

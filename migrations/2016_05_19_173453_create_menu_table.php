@@ -12,12 +12,13 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('menus');
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->timestamps();
         });
-
+        Schema::dropIfExists('menu_items');
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('menu_id')->nullable();

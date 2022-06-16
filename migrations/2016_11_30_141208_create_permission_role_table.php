@@ -13,6 +13,7 @@ class CreatePermissionRoleTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('permission_role');
         Schema::create('permission_role', function (Blueprint $table) {
             $table->bigInteger('permission_id')->unsigned()->index();
             $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
