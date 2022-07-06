@@ -122,7 +122,7 @@
                                         <br/>
                                     @endforeach
                                 @elseif($dataTypeContent->{$row->field})
-                                    @if ($row->field !== "path")
+                                    @if ($row->field !== "path" && $row->field !== "file_path")
                                         <a  target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($row->field) ?: '' }}">
                                             {{ __('voyager::generic.download') }}
                                         </a>

@@ -83,14 +83,26 @@
                 @endphp
 
                 @if($view == 'browse')
-                    @php
-                        $string_values = implode(", ", $selected_values);
-                        if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
-                    @endphp
-                    @if(empty($selected_values))
-                        <p>{{ __('voyager::generic.no_results') }}</p>
+                    @if ($options->table == "video_files" && $options->column == "id_solicitud")
+                        @if(empty($selected_values))
+                            <p>{{ __('voyager::generic.no_results') }}</p>
+                        @else
+                            @foreach($selected_values as $selected_value)
+                                <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected_value) ?: '' }}">
+                                    {{ __('voyager::generic.view') }}
+                                </a>
+                            @endforeach
+                        @endif
                     @else
-                        <p>{{ $string_values }}</p>
+                        @php
+                            $string_values = implode(", ", $selected_values);
+                            if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
+                        @endphp
+                        @if(empty($selected_values))
+                            <p>{{ __('voyager::generic.no_results') }}</p>
+                        @else
+                            <p>{{ $string_values }}</p>
+                        @endif
                     @endif
                 @else
                     @if(empty($selected_values))
