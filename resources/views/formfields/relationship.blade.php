@@ -30,12 +30,12 @@
             @else
 
                 <select
-                    class="form-control select2-ajax" name="{{ $options->column }}"
-                    data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
-                    data-get-items-field="{{$row->field}}"
-                    @if(!is_null($dataTypeContent->getKey())) data-id="{{$dataTypeContent->getKey()}}" @endif
-                    data-method="{{ !is_null($dataTypeContent->getKey()) ? 'edit' : 'add' }}"
-                    @if($row->required == 1) required @endif
+                        class="form-control select2-ajax" name="{{ $options->column }}"
+                        data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
+                        data-get-items-field="{{$row->field}}"
+                        @if(!is_null($dataTypeContent->getKey())) data-id="{{$dataTypeContent->getKey()}}" @endif
+                        data-method="{{ !is_null($dataTypeContent->getKey()) ? 'edit' : 'add' }}"
+                        @if($row->required == 1) required @endif
                 >
                     @php
                         $model = app($options->model);
@@ -93,6 +93,7 @@
                                 </a>
                             @endforeach
                         @endif
+
                     @else
                         @php
                             $string_values = implode(", ", $selected_values);
@@ -184,44 +185,44 @@
 
             @else
                 <select
-                    class="form-control select2-ajax @if(isset($options->taggable) && $options->taggable === 'on') taggable @endif"
-                    name="{{ $relationshipField }}[]" multiple
-                    data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
-                    data-get-items-field="{{$row->field}}"
-                    @if(!is_null($dataTypeContent->getKey())) data-id="{{$dataTypeContent->getKey()}}" @endif
-                    data-method="{{ !is_null($dataTypeContent->getKey()) ? 'edit' : 'add' }}"
-                    @if(isset($options->taggable) && $options->taggable === 'on')
-                        data-route="{{ route('voyager.'.\Illuminate\Support\Str::slug($options->table).'.store') }}"
+                        class="form-control select2-ajax @if(isset($options->taggable) && $options->taggable === 'on') taggable @endif"
+                        name="{{ $relationshipField }}[]" multiple
+                        data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
+                        data-get-items-field="{{$row->field}}"
+                        @if(!is_null($dataTypeContent->getKey())) data-id="{{$dataTypeContent->getKey()}}" @endif
+                        data-method="{{ !is_null($dataTypeContent->getKey()) ? 'edit' : 'add' }}"
+                        @if(isset($options->taggable) && $options->taggable === 'on')
+                            data-route="{{ route('voyager.'.\Illuminate\Support\Str::slug($options->table).'.store') }}"
                         data-label="{{$options->label}}"
                         data-error-message="{{__('voyager::bread.error_tagging')}}"
-                    @endif
-                    @if($row->required == 1) required @endif
+                        @endif
+                        @if($row->required == 1) required @endif
                 >
 
-                        @php
-                            $selected_keys = [];
+                    @php
+                        $selected_keys = [];
 
-                            if (!is_null($dataTypeContent->getKey())) {
-                                $selected_keys = $dataTypeContent->belongsToMany(
-                                    $options->model,
-                                    $options->pivot_table,
-                                    $options->foreign_pivot_key ?? null,
-                                    $options->related_pivot_key ?? null,
-                                    $options->parent_key ?? null,
-                                    $options->key
-                                )->pluck($options->table.'.'.$options->key);
-                            }
-                            $selected_keys = old($relationshipField, $selected_keys);
-                            $selected_values = app($options->model)->whereIn($options->key, $selected_keys)->pluck($options->label, $options->key);
-                        @endphp
+                        if (!is_null($dataTypeContent->getKey())) {
+                            $selected_keys = $dataTypeContent->belongsToMany(
+                                $options->model,
+                                $options->pivot_table,
+                                $options->foreign_pivot_key ?? null,
+                                $options->related_pivot_key ?? null,
+                                $options->parent_key ?? null,
+                                $options->key
+                            )->pluck($options->table.'.'.$options->key);
+                        }
+                        $selected_keys = old($relationshipField, $selected_keys);
+                        $selected_values = app($options->model)->whereIn($options->key, $selected_keys)->pluck($options->label, $options->key);
+                    @endphp
 
-                        @if(!$row->required)
-                            <option value="">{{__('voyager::generic.none')}}</option>
-                        @endif
+                    @if(!$row->required)
+                        <option value="">{{__('voyager::generic.none')}}</option>
+                    @endif
 
-                        @foreach ($selected_values as $key => $value)
-                            <option value="{{ $key }}" selected="selected">{{ $value }}</option>
-                        @endforeach
+                    @foreach ($selected_values as $key => $value)
+                        <option value="{{ $key }}" selected="selected">{{ $value }}</option>
+                    @endforeach
 
                 </select>
 

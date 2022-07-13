@@ -106,7 +106,15 @@
                                 </thead>
                                 <tbody>
                                     @foreach($dataTypeContent as $data)
-                                    <tr>
+                                        @if (isset($data['row_color']))
+                                            @if ($data['row_color'] !== null && !empty($data['row_color']))
+                                        <tr style="background-color: {{$data['row_color']}}">
+                                            @else
+                                        <tr>
+                                            @endif
+                                        @else
+                                        <tr>
+                                                @endif
                                         @if($showCheckboxColumn)
                                             <td>
                                                 <input type="checkbox" name="row_id" id="checkbox_{{ $data->getKey() }}" value="{{ $data->getKey() }}">
