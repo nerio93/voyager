@@ -44,11 +44,34 @@
                                 $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_read'};
                             }
                         @endphp
-                        <div class="panel-heading" style="border-bottom:0;">
-                            <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
-                        </div>
+                        @if (isset($dataTypeContent->{'row_color'}))
+                            @if ($dataTypeContent->{'row_color'} !== null && !empty($dataTypeContent->{'row_color'}) && $index == 0)
+                                <div class="panel-heading" style="border-bottom:0;background-color: {{ $dataTypeContent->{'row_color'} }}">
+                                    <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
+                                </div>
+                            @else
+                                <div class="panel-heading" style="border-bottom:0;">
+                                    <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
+                                </div>
+                            @endif
+                        @else
+                            <div class="panel-heading" style="border-bottom:0;">
+                                <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
+                            </div>
+                        @endif
 
-                        <div class="panel-body" style="padding-top:0;">
+
+
+                            @if (isset($dataTypeContent->{'row_color'}))
+                                @if ($dataTypeContent->{'row_color'} !== null && !empty($dataTypeContent->{'row_color'}) && $index == 0)
+                                    <div class="panel-body" style="padding-top:0; background-color: {{ $dataTypeContent->{'row_color'} }}">
+                                @else
+                                    <div class="panel-body" style="padding-top:0;">
+                                @endif
+                            @else
+                                <div class="panel-body" style="padding-top:0;">
+                            @endif
+
                             @if (isset($row->details->view_read))
                                 @include($row->details->view_read, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'view' => 'read', 'options' => $row->details])
                             @elseif (isset($row->details->view))
