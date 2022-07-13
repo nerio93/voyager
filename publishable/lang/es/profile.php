@@ -11,4 +11,5 @@ return [
     'roles'             => 'Roles',
     'roles_additional'  => 'Roles adicionales',
     'user_role'         => 'Rol del usuario',
+    'user_name'        => 'Nombre de usuario'
 ];
