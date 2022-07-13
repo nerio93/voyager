@@ -38,7 +38,7 @@
 
                 <div class="panel panel-bordered" style="padding-bottom:5px;">
                     <!-- form start -->
-                    @foreach($dataType->readRows as $row)
+                    @foreach($dataType->readRows as $index => $row)
                         @php
                             if ($dataTypeContent->{$row->field.'_read'}) {
                                 $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_read'};
@@ -59,9 +59,6 @@
                                 <h3 class="panel-title">{{ $row->getTranslatedAttribute('display_name') }}</h3>
                             </div>
                         @endif
-
-
-
                             @if (isset($dataTypeContent->{'row_color'}))
                                 @if ($dataTypeContent->{'row_color'} !== null && !empty($dataTypeContent->{'row_color'}) && $index == 0)
                                     <div class="panel-body" style="padding-top:0; background-color: {{ $dataTypeContent->{'row_color'} }}">
