@@ -15,11 +15,17 @@
                 @endphp
 
                 @if(isset($query))
-                    @if($options->label == "path" && $options->table == "zip")
-                        {{basename($query->{$options->label})}}
-                        (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">
-                            {{ __('voyager::generic.download') }}
-                        </a>)
+                    @if(($options->label == "path" && $options->table == "zip")||$options->column == "face_comparison_json_id"||$options->column == "biometric_json_id")
+                        @if($options->column == "face_comparison_json_id" || $options->column == "biometric_json_id")
+                            <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
+                                {{ __('voyager::generic.view') }}
+                            </a>
+                        @else
+                            {{basename($query->{$options->label})}}
+                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">
+                                {{ __('voyager::generic.download') }}
+                            </a>)
+                        @endif
                     @else
                         <p>{{ $query->{$options->label} }}</p>
                     @endif
