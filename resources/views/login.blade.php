@@ -8,7 +8,7 @@
         <form action="{{ route('voyager.login') }}" method="POST">
             {{ csrf_field() }}
             <div class="form-group form-group-default" id="emailGroup">
-                <label>{{ __('voyager::generic.email') }} / {{ __('voyager::generic.user_name') }}</label>
+                <label>{{ __('voyager::generic.email') }} / {{ __('voyager::profile.user_name') }}</label>
                 <div class="controls">
                     <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager::generic.email') }}" class="form-control" required>
                 </div>
