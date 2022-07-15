@@ -5,6 +5,8 @@ namespace Lisandrop05\Voyager\Http\Controllers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 use Lisandrop05\Voyager\Facades\Voyager;
 
 class VoyagerAuthController extends Controller
@@ -17,7 +19,30 @@ class VoyagerAuthController extends Controller
             return redirect()->route('voyager.dashboard');
         }
 
-        return Voyager::view('voyager::login');
+        if(env("LIST_OPERATORS",false)){
+            $operators = $this->loadOperators();
+            return Voyager::view('voyager::login')->with(["operators"=>$operators]);
+        }
+        else{
+            return Voyager::view('voyager::login');
+        }
+    }
+
+    public function loadOperators(){
+        try {
+            $client = new Client();
+            $response = $client->get(env("APP_URL") . "/api/login-items", [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ],
+            ]);
+            $res = json_decode($response->getBody(), true);
+            if ($response->getStatusCode() === 200) {
+                return $res;
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     public function postLogin(Request $request)

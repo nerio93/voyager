@@ -7,6 +7,17 @@
 
         <form action="{{ route('voyager.login') }}" method="POST">
             {{ csrf_field() }}
+
+            @if (env("LIST_OPERATORS",false) && !empty($operators))
+                <div class="form-group form-group-default" id="certificateGroup">
+                    <label>{{ __('voyager::generic.email') }} / {{ __('voyager::profile.user_name') }}</label>
+                    <div class="controls">
+                        {{json_encode($operators)}}
+                        <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager::generic.email') }}" class="form-control" required>
+                    </div>
+                </div>
+            @endif
+
             <div class="form-group form-group-default" id="emailGroup">
                 <label>{{ __('voyager::generic.email') }} / {{ __('voyager::profile.user_name') }}</label>
                 <div class="controls">
