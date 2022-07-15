@@ -10,10 +10,15 @@
 
             @if (env("LIST_OPERATORS",false) && !empty($operators))
                 <div class="form-group form-group-default" id="certificateGroup">
-                    <label>{{ __('voyager::generic.email') }} / {{ __('voyager::profile.user_name') }}</label>
+                    <label>{{ __('Operator') }}</label>
                     <div class="controls">
-                        {{json_encode($operators)}}
-                        <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager::generic.email') }}" class="form-control" required>
+                        <select name="operator" id="operator"  class="form-control select2" name="{{ __('Operator') }}" @onchange="alert('sdgsd');">
+                            @if(isset($operators))
+                                @foreach($operators as $option)
+                                    <option value="{{ $option['serial'] }}" >{{ $option['cn'] }} - {{ $option['serial'] }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
                 </div>
             @endif
@@ -63,10 +68,17 @@
 @section('post_js')
 
     <script>
+
+
         var btn = document.querySelector('button[type="submit"]');
-        var form = document.forms[0];
+        var operator = document.querySelector('[name="operator"]');
         var email = document.querySelector('[name="email"]');
         var password = document.querySelector('[name="password"]');
+        operator.addEventListener('change', function(ev){
+            email.value = operator.value;
+            password.value = "";
+        });
+        var form = document.forms[0];
         btn.addEventListener('click', function(ev){
             if (form.checkValidity()) {
                 btn.querySelector('.signingin').className = 'signingin';
