@@ -16,7 +16,7 @@ class TramitAction extends AbstractAction
 
     public function getPolicy()
     {
-        return 'tramit';
+        return 'delete';
     }
 
     public function getAttributes()
