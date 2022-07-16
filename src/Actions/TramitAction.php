@@ -11,20 +11,20 @@ class TramitAction extends AbstractAction
 
     public function getIcon()
     {
-        return 'voyager-trash';
+        return 'voyager-check-circle';
     }
 
     public function getPolicy()
     {
-        return 'delete';
+        return 'tramit';
     }
 
     public function getAttributes()
     {
         return [
-            'class'   => 'btn btn-sm btn-danger pull-right delete',
+            'class'   => 'btn btn-sm btn-info pull-left info',
             'data-id' => $this->data->{$this->data->getKeyName()},
-            'id'      => 'delete-'.$this->data->{$this->data->getKeyName()},
+            'id'      => 'tramit-'.$this->data->{$this->data->getKeyName()},
         ];
     }
 
