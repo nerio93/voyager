@@ -17,14 +17,18 @@
                 @if(isset($query))
                     @if(($options->label == "path" && $options->table == "zip")||$options->column == "face_comparison_json_id"||$options->column == "biometric_json_id")
                         @if($options->column == "face_comparison_json_id" || $options->column == "biometric_json_id")
+                            {{--                            ({{basename($query->{$options->label})}})--}}
                             <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
-                                {{ __('voyager::generic.view') }}
+                                {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
                             </a>
                         @else
-                            {{basename($query->{$options->label})}}
-                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">
-                                {{ __('voyager::generic.download') }}
-                            </a>)
+                            {{--                            ({{basename($query->{$options->label})}})--}}
+                            <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
+                                {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
+                            </a>
+                            {{--                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">--}}
+                            {{--                                {{ __('voyager::generic.download') }}--}}
+                            {{--                            </a>)--}}
                         @endif
                     @else
                         <p>{{ $query->{$options->label} }}</p>
@@ -89,13 +93,13 @@
                 @endphp
 
                 @if($view == 'browse')
-                    @if ($options->table == "video_files" && $options->column == "id_solicitud")
+                    @if ($options->table == "video_files" || $options->table == "video_file"  && $options->column == "id_solicitud")
                         @if(empty($selected_values))
                             <p>{{ __('voyager::generic.no_results') }}</p>
                         @else
                             @foreach($selected_values as $selected_value)
                                 <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected_value) ?: '' }}">
-                                    {{ __('voyager::generic.view') }}
+                                    {{ __('voyager::generic.view') . " " . str_replace(["_","-"],[" ", " "],ucfirst($options->table))}}
                                 </a>
                             @endforeach
                         @endif

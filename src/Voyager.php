@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use Lisandrop05\Voyager\Actions\DeleteAction;
 use Lisandrop05\Voyager\Actions\EditAction;
 use Lisandrop05\Voyager\Actions\RestoreAction;
-use Lisandrop05\Voyager\Actions\TramitAction;
+use Lisandrop05\Voyager\Actions\ProcessAction;
 use Lisandrop05\Voyager\Actions\ViewAction;
 use Lisandrop05\Voyager\Events\AlertsCollection;
 use Lisandrop05\Voyager\FormFields\After\HandlerInterface as AfterHandlerInterface;
@@ -46,7 +46,7 @@ class Voyager
     protected $viewLoadingEvents = [];
 
     protected $actions = [
-//        TramitAction::class,
+//        ProcessAction::class,
         DeleteAction::class,
         RestoreAction::class,
         EditAction::class,

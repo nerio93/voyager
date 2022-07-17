@@ -79,8 +79,8 @@ class SettingPolicy extends BasePolicy
      *
      * @return bool
      */
-    public function tramit(User $user, $model) : bool
+    public function process(User $user, $model) : bool
     {
-        return $user->hasPermission('tramit_settings');
+        return $user->hasPermission('process_settings');
     }
 }

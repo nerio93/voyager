@@ -2,11 +2,11 @@
 
 namespace Lisandrop05\Voyager\Actions;
 
-class TramitAction extends AbstractAction
+class ProcessAction extends AbstractAction
 {
     public function getTitle()
     {
-        return __('tramit');
+        return __('process');
     }
 
     public function getIcon()
@@ -16,7 +16,7 @@ class TramitAction extends AbstractAction
 
     public function getPolicy()
     {
-        return 'tramit';
+        return 'process';
     }
 
     public function getAttributes()
@@ -24,7 +24,7 @@ class TramitAction extends AbstractAction
         return [
             'class'   => 'btn btn-sm btn-info pull-left info',
             'data-id' => $this->data->{$this->data->getKeyName()},
-            'id'      => 'tramit-'.$this->data->{$this->data->getKeyName()},
+            'id'      => 'process-'.$this->data->{$this->data->getKeyName()},
         ];
     }
 

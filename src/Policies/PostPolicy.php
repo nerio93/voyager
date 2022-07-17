@@ -66,7 +66,7 @@ class PostPolicy extends BasePolicy
      * @param $model
      * @return bool
      */
-    public function tramit(User $user, $model): bool
+    public function process(User $user, $model): bool
     {
         // Does this post belong to the current user?
         $current = $user->id === $model->author_id;
@@ -74,6 +74,6 @@ class PostPolicy extends BasePolicy
         // Has this already been deleted?
         $soft_delete = $model->deleted_at && in_array(SoftDeletes::class, class_uses_recursive($model));
 
-        return !$soft_delete && ($current || $this->checkPermission($user, $model, 'tramit'));
+        return !$soft_delete && ($current || $this->checkPermission($user, $model, 'process'));
     }
 }
