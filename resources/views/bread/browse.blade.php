@@ -11,6 +11,13 @@
                 </ul>
             </div>
         @endif
+        @if (\Session::has('error'))
+            <div class="alert alert-danger">
+                <ul>
+                    <li>{!! \Session::get('error') !!}</li>
+                </ul>
+            </div>
+        @endif
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
@@ -347,7 +354,7 @@
                                     </li>
                                 </ul>
                                 <br><br>
-                                <input type="text" style="width: 100%" name="reason_input" id="reason_input" class="hidden full-width" placeholder="{{ __('Reason') }}" value=""><br><br>
+                                <input type="text" required style="width: 100%" name="reason_input" id="reason_input" class="hidden full-width" placeholder="{{ __('Reason') }}" value=""><br><br>
                             </div>
                             {{ method_field('POST') }}
                             {{ csrf_field() }}
@@ -441,12 +448,15 @@
         });
         $('#option-suspend').on('click',function (e){
             $('#reason_input').removeClass('hidden');
+            $('#reason_input').attr('required',"required");
         });
         $('#option-approve').on('click',function (e){
             $('#reason_input').addClass('hidden');
+            $('#reason_input').attr('required',null);
         });
         $('#option-deny').on('click',function (e){
             $('#reason_input').addClass('hidden');
+            $('#reason_input').attr('required',null);
         });
         @endif
 
