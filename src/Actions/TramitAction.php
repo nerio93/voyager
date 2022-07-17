@@ -6,17 +6,17 @@ class TramitAction extends AbstractAction
 {
     public function getTitle()
     {
-        return __('voyager::generic.delete');
+        return __('tramit');
     }
 
     public function getIcon()
     {
-        return 'voyager-check-circle';
+        return 'voyager-paper-plane';
     }
 
     public function getPolicy()
     {
-        return 'delete';
+        return 'tramit';
     }
 
     public function getAttributes()

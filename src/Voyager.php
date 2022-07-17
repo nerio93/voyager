@@ -46,7 +46,7 @@ class Voyager
     protected $viewLoadingEvents = [];
 
     protected $actions = [
-        TramitAction::class,
+//        TramitAction::class,
         DeleteAction::class,
         RestoreAction::class,
         EditAction::class,

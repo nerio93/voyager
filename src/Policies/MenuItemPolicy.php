@@ -19,7 +19,7 @@ class MenuItemPolicy extends BasePolicy
      *
      * @return bool
      */
-    protected function checkPermission(User $user, $model, $action)
+    protected function checkPermission(User $user, $model, $action) : bool
     {
         if (self::$permissions == null) {
             self::$permissions = Voyager::model('Permission')->all();

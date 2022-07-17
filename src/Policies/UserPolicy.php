@@ -9,7 +9,7 @@ class UserPolicy extends BasePolicy
     /**
      * Determine if the given model can be viewed by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
@@ -25,7 +25,7 @@ class UserPolicy extends BasePolicy
     /**
      * Determine if the given model can be edited by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
@@ -41,7 +41,7 @@ class UserPolicy extends BasePolicy
     /**
      * Determine if the given user can change a user a role.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool

@@ -3,6 +3,7 @@
 namespace Lisandrop05\Voyager\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Lisandrop05\Voyager\Contracts\User;
 use Lisandrop05\Voyager\Facades\Voyager;
 
@@ -25,7 +26,7 @@ class BasePolicy
         if (count($arguments) < 2) {
             throw new \InvalidArgumentException('not enough arguments');
         }
-        /** @var \Lisandrop05\Voyager\Contracts\User $user */
+        /** @var User $user */
         $user = $arguments[0];
 
         /** @var $model */
@@ -37,12 +38,12 @@ class BasePolicy
     /**
      * Determine if the given model can be restored by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function restore(User $user, $model)
+    public function restore(User $user, $model): bool
     {
         // Can this be restored?
         return $model->deleted_at && $this->checkPermission($user, $model, 'delete');
@@ -51,15 +52,15 @@ class BasePolicy
     /**
      * Determine if the given model can be deleted by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function delete(User $user, $model)
+    public function delete(User $user, $model): bool
     {
         // Has this already been deleted?
-        $soft_delete = $model->deleted_at && in_array(\Illuminate\Database\Eloquent\SoftDeletes::class, class_uses_recursive($model));
+        $soft_delete = $model->deleted_at && in_array(SoftDeletes::class, class_uses_recursive($model));
 
         return !$soft_delete && $this->checkPermission($user, $model, 'delete');
     }
@@ -67,13 +68,13 @@ class BasePolicy
     /**
      * Check if user has an associated permission.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param object                      $model
      * @param string                      $action
      *
      * @return bool
      */
-    protected function checkPermission(User $user, $model, $action)
+    protected function checkPermission(User $user, $model, $action): bool
     {
         if (!isset(self::$datatypes[get_class($model)])) {
             $dataType = Voyager::model('DataType');

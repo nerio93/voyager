@@ -2,8 +2,12 @@
 
 namespace Lisandrop05\Voyager\Policies;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Lisandrop05\Voyager\Contracts\User;
 
+/**
+ *
+ */
 class PostPolicy extends BasePolicy
 {
     /**
@@ -46,25 +50,30 @@ class PostPolicy extends BasePolicy
      *
      * @return bool
      */
-    public function delete(User $user, $model)
+    public function delete(User $user, $model) : bool
     {
         // Does this post belong to the current user?
         $current = $user->id === $model->author_id;
 
         // Has this already been deleted?
-        $soft_delete = $model->deleted_at && in_array(\Illuminate\Database\Eloquent\SoftDeletes::class, class_uses_recursive($model));
+        $soft_delete = $model->deleted_at && in_array(SoftDeletes::class, class_uses_recursive($model));
 
         return !$soft_delete && ($current || $this->checkPermission($user, $model, 'delete'));
     }
 
+    /**
+     * @param User $user
+     * @param $model
+     * @return bool
+     */
     public function tramit(User $user, $model): bool
     {
         // Does this post belong to the current user?
         $current = $user->id === $model->author_id;
 
         // Has this already been deleted?
-        $soft_delete = $model->deleted_at && in_array(\Illuminate\Database\Eloquent\SoftDeletes::class, class_uses_recursive($model));
+        $soft_delete = $model->deleted_at && in_array(SoftDeletes::class, class_uses_recursive($model));
 
-        return !$soft_delete && ($current || $this->checkPermission($user, $model, 'delete'));
+        return !$soft_delete && ($current || $this->checkPermission($user, $model, 'tramit'));
     }
 }

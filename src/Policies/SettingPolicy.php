@@ -9,12 +9,12 @@ class SettingPolicy extends BasePolicy
     /**
      * Determine if the given user can browse the model.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function browse(User $user, $model)
+    public function browse(User $user, $model): bool
     {
         return $user->hasPermission('browse_settings');
     }
@@ -22,7 +22,7 @@ class SettingPolicy extends BasePolicy
     /**
      * Determine if the given model can be viewed by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
@@ -35,12 +35,12 @@ class SettingPolicy extends BasePolicy
     /**
      * Determine if the given model can be edited by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function edit(User $user, $model)
+    public function edit(User $user, $model): bool
     {
         return $user->hasPermission('edit_settings');
     }
@@ -48,12 +48,12 @@ class SettingPolicy extends BasePolicy
     /**
      * Determine if the given user can create the model.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function add(User $user, $model)
+    public function add(User $user, $model): bool
     {
         return $user->hasPermission('add_settings');
     }
@@ -61,13 +61,26 @@ class SettingPolicy extends BasePolicy
     /**
      * Determine if the given model can be deleted by the user.
      *
-     * @param \Lisandrop05\Voyager\Contracts\User $user
+     * @param User $user
      * @param  $model
      *
      * @return bool
      */
-    public function delete(User $user, $model)
+    public function delete(User $user, $model) : bool
     {
         return $user->hasPermission('delete_settings');
+    }
+
+    /**
+     * Determine if the given model can be deleted by the user.
+     *
+     * @param User $user
+     * @param  $model
+     *
+     * @return bool
+     */
+    public function tramit(User $user, $model) : bool
+    {
+        return $user->hasPermission('tramit_settings');
     }
 }
