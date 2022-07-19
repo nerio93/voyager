@@ -15,7 +15,23 @@ class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+        $customDashboardHtml= "";
+        if(env('CUSTOM_HTML_DASHBOARD',false)){
+            $customDashboardHtml = $this->loadCustomDashboard();
+        }
+
+        return Voyager::view('voyager::index')->with(["customDashboard"=>$customDashboardHtml]);
+    }
+
+    public function loadCustomDashboard(){
+        try {
+            $className = env("CUSTOM_HTML_DASHBOARD_CONTROLLER_CLASS_NAME",'App\Http\Controllers\BaseController');
+            $object = new $className;
+            $method = env("CUSTOM_HTML_DASHBOARD_CONTROLLER_METHOD_NAME",'LoadCustomDashboard');
+            return $object->{$method}();
+        } catch (Exception $e) {
+            return [];
+        }
     }
 
     public function logout()
