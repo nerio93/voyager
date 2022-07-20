@@ -2,6 +2,12 @@
 
 @section('page_title', __('voyager::generic.view').' '.$dataType->getTranslatedAttribute('display_name_singular'))
 
+<link rel="stylesheet" href="/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/jsonview.css" />
+<script src="/js/jsonview.js"></script>
+<link href="/css/jquery.json-viewer.css" type="text/css" rel="stylesheet">
+
+
 @section('page_header')
     <h1 class="page-title">
         <i class="{{ $dataType->icon }}"></i> {{ __('voyager::generic.viewing') }} {{ ucfirst($dataType->getTranslatedAttribute('display_name_singular')) }} &nbsp;
@@ -154,6 +160,9 @@
                                                                     </a>)
                                                                 @endif
                                                             @endif
+                                                        @elseif($row->type == 'JsonField')
+                                                            <pre id="json-renderer"></pre>
+                                                            <input type="hidden" value="{{ $dataTypeContent->{$row->field}  }}" name="json_data" id="json_data">
                                                         @else
                                                             @include('voyager::multilingual.input-hidden-bread-read')
                                                             <p>{{ $dataTypeContent->{$row->field} }}</p>
@@ -203,7 +212,12 @@
                         });
                     </script>
                 @endif
+                <script src="/js/jquery.json-viewer.js"></script>
                 <script>
+                    var data = $('#json_data').val();
+                    data = JSON.parse(data);
+                    $('#json-renderer').jsonViewer(data);
+
                     var deleteFormAction;
                     $('.delete').on('click', function (e) {
                         var form = $('#delete_form')[0];
