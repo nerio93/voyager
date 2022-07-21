@@ -161,7 +161,7 @@
                                                         @endif
                                                     @elseif($row->type == 'JsonField')
                                                         <pre id="json-renderer"></pre>
-                                                        <input type="hidden" value="{{ $dataTypeContent->{$row->field}  }}" name="json_data" id="json_data">
+                                                        <input type="hidden" value="{{ $dataTypeContent->{$row->field} }}" name="json_data" id="json_data">
                                                     @else
                                                         @include('voyager::multilingual.input-hidden-bread-read')
                                                         <p>{{ $dataTypeContent->{$row->field} }}</p>
