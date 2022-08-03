@@ -97,11 +97,16 @@
                         @if(empty($selected_values))
                             <p>{{ __('voyager::generic.no_results') }}</p>
                         @else
-                            @foreach($selected_values as $selected_value)
-                                <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected_value) ?: '' }}">
-                                    {{ __('voyager::generic.view') . " " . str_replace(["_","-"],[" ", " "],ucfirst($options->table))}}
-                                </a>
-                            @endforeach
+                            <ul>
+                                @foreach($selected_values as $selected_value)
+                                    <li>
+                                        {{basename($selected_value)}}
+                                        (<a  target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($selected_value) ?: '' }}">
+                                            {{ __('voyager::generic.download') }}
+                                        </a>)
+                                    </li>
+                                @endforeach
+                            </ul>
                         @endif
 
                     @else
