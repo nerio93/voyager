@@ -162,6 +162,7 @@
                                                     @elseif($row->type == 'JsonField')
                                                         <pre id="json-renderer"></pre>
                                                         <input type="hidden" value="{{ $dataTypeContent->{$row->field} }}" name="json_data" id="json_data">
+                                                        <input type="hidden" value="{{ $dataTypeContent->metadata }}" name="json_metadata" id="json_metadata">
                                                     @else
                                                         @include('voyager::multilingual.input-hidden-bread-read')
                                                         <p>{{ $dataTypeContent->{$row->field} }}</p>
@@ -212,8 +213,10 @@
                 <script src="/js/jquery.json-viewer.js"></script>
                 <script>
                     var data = $('#json_data').val();
+                    var metadata = $('#json_metadata').val();
                     data = JSON.parse(data);
-                    $('#json-renderer').jsonViewer(data);
+                    metadata = JSON.parse(metadata);
+                    $('#json-renderer').jsonViewer(data,{"coloredKeys":metadata});
 
                     var deleteFormAction;
                     $('.delete').on('click', function (e) {
