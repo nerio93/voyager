@@ -74,7 +74,13 @@
             @endphp
 
             @if(isset($query))
-                <p>{{ $query->{$options->label} }}</p>
+                @if($options->table == "cert_request_data")
+                    <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $query->{$options->label} ) ?: '' }}">
+                        {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
+                    </a>
+                @else
+                    <p>{{ $query->{$options->label} }}</p>
+                @endif
             @else
                 <p>{{ __('voyager::generic.no_results') }}</p>
             @endif

@@ -215,7 +215,12 @@
                     var data = $('#json_data').val();
                     var metadata = $('#json_metadata').val();
                     data = JSON.parse(data);
-                    metadata = JSON.parse(metadata);
+                    if(metadata != ""){
+                        metadata = JSON.parse(metadata);
+                    }
+                    else{
+                        metadata = [];
+                    }
                     $('#json-renderer').jsonViewer(data,{"coloredKeys":metadata});
 
                     var deleteFormAction;
