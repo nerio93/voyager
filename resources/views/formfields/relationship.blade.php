@@ -15,13 +15,18 @@
                 @endphp
 
                 @if(isset($query))
-                    @if(($options->label == "path" && $options->table == "zip")||$options->column == "face_comparison_json_id"||$options->column == "biometric_json_id")
+                    @if(($options->label == "path" && $options->table == "zip")||$options->column == "face_comparison_json_id"||$options->column == "biometric_json_id" || $options->column == "id_user")
                         @if($options->column == "face_comparison_json_id" || $options->column == "biometric_json_id")
                             {{--                            ({{basename($query->{$options->label})}})--}}
                             <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
                                 {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
                             </a>
                         @else
+                            @if($options->column == "id_user")
+                                <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
+                                    {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
+                                </a>
+                            @else
                             {{--                            ({{basename($query->{$options->label})}})--}}
                             <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
                                 {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
@@ -29,6 +34,7 @@
                             {{--                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">--}}
                             {{--                                {{ __('voyager::generic.download') }}--}}
                             {{--                            </a>)--}}
+                            @endif
                         @endif
                     @else
                         <p>{{ $query->{$options->label} }}</p>
