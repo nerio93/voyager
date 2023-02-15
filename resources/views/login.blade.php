@@ -63,6 +63,9 @@
         @endif
 
     </div> <!-- .login-container -->
+    <div style="clear:both; position: absolute;right: 10px;bottom: 10px;width: 50%">
+        <img class="img-responsive" src="{{voyager_asset('/images/LOGO_FDER_transparente_1_0.webp')}}">
+    </div>
 @endsection
 
 @section('post_js')
