@@ -1,7 +1,7 @@
 <footer class="app-footer">
     <div class="site-footer-right">
 
-        <div style="clear: both; float: right; max-width: 200px; width: 40%;">
+        <div style="clear: both; float: right; max-width: 200px; width: 40%; margin-bottom: 10px;margin-right: 10px;">
             <img class="img-responsive" src="{{voyager_asset('/images/LOGO_FDER_transparente_1_0.webp')}}">
         </div>
 {{--        @if (rand(1,100) == 100)--}}
