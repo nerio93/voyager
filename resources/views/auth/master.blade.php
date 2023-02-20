@@ -38,7 +38,7 @@
     </style>
 
     @yield('pre_css')
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ voyager_asset('css/googlefonts.css') }}">
 </head>
 <body class="login">
 <div class="container-fluid">
