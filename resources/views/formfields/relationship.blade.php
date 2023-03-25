@@ -27,13 +27,13 @@
                                     {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
                                 </a>
                             @else
-                            {{--                            ({{basename($query->{$options->label})}})--}}
-                            <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
-                                {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
-                            </a>
-                            {{--                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">--}}
-                            {{--                                {{ __('voyager::generic.download') }}--}}
-                            {{--                            </a>)--}}
+                                {{--                            ({{basename($query->{$options->label})}})--}}
+                                <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $relationshipData->{$options->column} ) ?: '' }}">
+                                    {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
+                                </a>
+                                {{--                            (<a target="_blank" href="{{ Storage::disk(config('voyager.storage.disk'))->url($query->{$options->label}) ?: '' }}">--}}
+                                {{--                                {{ __('voyager::generic.download') }}--}}
+                                {{--                            </a>)--}}
                             @endif
                         @endif
                     @else
@@ -122,14 +122,22 @@
                         @endif
 
                     @else
-                        @php
-                            $string_values = implode(", ", $selected_values);
-                            if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
-                        @endphp
-                        @if(empty($selected_values))
-                            <p>{{ __('voyager::generic.no_results') }}</p>
+                        @if ($options->table == 'zip')
+                            @foreach($selected_values as $index => $selected_value)
+                                <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected_value ) ?: '' }}">
+                                    {{ __('voyager::generic.view') . " " . ucfirst($options->table) }}: {{ $index+1 }}
+                                </a>
+                            @endforeach
                         @else
-                            <p>{{ $string_values }}</p>
+                            @php
+                                $string_values = implode(", ", $selected_values);
+                                if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
+                            @endphp
+                            @if(empty($selected_values))
+                                <p>{{ __('voyager::generic.no_results') }}</p>
+                            @else
+                                <p>{{ $string_values }}</p>
+                            @endif
                         @endif
                     @endif
                 @else
@@ -148,11 +156,19 @@
                                 @endforeach
                             </ul>
                         @else
-                            <ul>
-                                @foreach($selected_values as $selected_value)
-                                    <li>{{ $selected_value }}</li>
+                            @if ($options->table == 'zip')
+                                @foreach($selected_values as $index => $selected_value)
+                                    <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected_value ) ?: '' }}">
+                                        {{ __('voyager::generic.view') . " " . ucfirst($options->table) }}: {{ $index+1 }} <BR>
+                                    </a>
                                 @endforeach
-                            </ul>
+                            @else
+                                <ul>
+                                    @foreach($selected_values as $selected_value)
+                                        <li>{{ $selected_value }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         @endif
                     @endif
                 @endif
