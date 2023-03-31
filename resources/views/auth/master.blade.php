@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
     @if (__('voyager::generic.is_rtl') == 'true')
         <link rel="stylesheet" href="{{ voyager_asset('css/googlefonts.css') }}">
+        <link rel="stylesheet" href="{{ voyager_asset('css/nunito.css') }}">
         <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
     @endif
     <style>
