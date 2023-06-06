@@ -53,6 +53,6 @@
         }
     },
     "suggest": {
-        "laravel/legacy-factories": "Required to run Voyager tests with Laravel 8.x"
+        "laravel/legacy-factories": "Required to run Voyager tests with Laravel 10.x"
     }
 }
