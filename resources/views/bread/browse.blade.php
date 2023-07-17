@@ -455,7 +455,7 @@
             $('#reason_input').attr('required',null);
         });
         $('#option-deny').on('click',function (e){
-            $('#reason_input').addClass('hidden');
+            $('#reason_input').removeClass('hidden');
             $('#reason_input').attr('required',null);
         });
         @endif
