@@ -73,14 +73,12 @@
 
             @php
                 $relationshipData = (isset($data)) ? $data : $dataTypeContent;
-
                 $model = app($options->model);
                 $query = $model::where($options->column, '=', $relationshipData->{$options->key})->first();
-
             @endphp
 
             @if(isset($query))
-                @if($options->table == "cert_request_data")
+                @if($options->table == "cert_request_data" ||$options->table == "solicitud" )
                     <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $query->{$options->label} ) ?: '' }}">
                         {{ __('voyager::generic.view') . " " .ucfirst($options->table) }}
                     </a>
@@ -92,9 +90,7 @@
             @endif
 
         @elseif($options->type == 'hasMany')
-
             @if(isset($view) && ($view == 'browse' || $view == 'read'))
-
                 @php
                     $relationshipData = (isset($data)) ? $data : $dataTypeContent;
                     $model = app($options->model);
@@ -102,8 +98,11 @@
                     $selected_values = $model::where($options->column, '=', $relationshipData->{$options->key})->get()->map(function ($item, $key) use ($options) {
                         return $item->{$options->label};
                     })->all();
-                @endphp
 
+                    $selected = $model::where($options->column, '=', $relationshipData->{$options->key})->get()->map(function ($item, $key) use ($options) {
+                        return $item;
+                    })->all();
+                @endphp
                 @if($view == 'browse')
                     @if ($options->table == "video_files" || $options->table == "video_file"  && $options->column == "id_solicitud")
                         @if(empty($selected_values))
@@ -120,7 +119,6 @@
                                 @endforeach
                             </ul>
                         @endif
-
                     @else
                         @if ($options->table == 'zip')
                             @foreach($selected_values as $index => $selected_value)
@@ -140,6 +138,7 @@
                             @endif
                         @endif
                     @endif
+
                 @else
                     @if(empty($selected_values))
                         <p>{{ __('voyager::generic.no_results') }}</p>
@@ -163,11 +162,19 @@
                                     </a>
                                 @endforeach
                             @else
-                                <ul>
-                                    @foreach($selected_values as $selected_value)
-                                        <li>{{ $selected_value }}</li>
+                                @if ($options->table == 'event_registry')
+                                    @foreach($selected_values as $index => $selected_value)
+                                        <a  href="{{ url("/admin/".\Illuminate\Support\Str::slug($options->table) . "/" . $selected[$index]->{$options->key} ) ?: '' }}">
+                                            {{ $selected[$index]->created_at . " " . $selected_value }} <BR>
+                                        </a>
                                     @endforeach
-                                </ul>
+                                @else
+                                    <ul>
+                                        @foreach($selected_values as $selected_value)
+                                            <li>{{ $selected_value }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             @endif
                         @endif
                     @endif
