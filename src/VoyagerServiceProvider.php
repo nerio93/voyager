@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageServiceProvider;
-use Larapack\DoctrineSupport\DoctrineSupportServiceProvider;
+
 use Lisandrop05\Voyager\Events\FormFieldsRegistered;
 use Lisandrop05\Voyager\Facades\Voyager as VoyagerFacade;
 use Lisandrop05\Voyager\FormFields\After\DescriptionHandler;
@@ -59,7 +59,7 @@ class VoyagerServiceProvider extends ServiceProvider
         $this->app->register(VoyagerEventServiceProvider::class);
         $this->app->register(ImageServiceProvider::class);
         $this->app->register(VoyagerDummyServiceProvider::class);
-        $this->app->register(DoctrineSupportServiceProvider::class);
+        //$this->app->register(DoctrineSupportServiceProvider::class);
 
         $loader = AliasLoader::getInstance();
         $loader->alias('Voyager', VoyagerFacade::class);
