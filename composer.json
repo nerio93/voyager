@@ -23,7 +23,8 @@
         "laravel/ui": ">=1.0",
         "arrilot/laravel-widgets": "^3.14.0",
         "league/flysystem": "~1.1|~2.0|~3.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "intervention/image-laravel": "^1.5"
     },
     "require-dev": {
         "phpunit/phpcov": ">=6.0",
