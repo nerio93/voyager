@@ -18,8 +18,8 @@
         "php": "^7.3|^7.4|^8.0",
         "illuminate/support": "~6.0|~7.0|~8.0|~9.0|~10.0",
         "intervention/image": "^3.2.4",
-        "doctrine/dbal": "^2.13.9",
-        "larapack/doctrine-support": "^v0.1.9",
+        "doctrine/dbal": "^3.5.0",
+
         "laravel/ui": ">=1.0",
         "arrilot/laravel-widgets": "^3.14.0",
         "league/flysystem": "~1.1|~2.0|~3.0",
