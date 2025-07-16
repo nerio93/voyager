@@ -67,7 +67,7 @@
     <div style="clear:both; position: absolute;right: 10px;bottom: 10px;width: 50%;text-align: right;">
         <img class="img-responsive" src="{{voyager_asset('/images/LOGO_FDER_transparente_1_0.webp')}}">
         <br>
-        @php $version = (new Lisandrop05\Voyager\Voyager)->getVersion(); @endphp
+        @php $version = "v2.0.22" ;//(new Lisandrop05\Voyager\Voyager)->getVersion(); @endphp
         @if (!empty($version))
             {{ $version }}
         @endif
