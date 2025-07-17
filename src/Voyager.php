@@ -312,8 +312,8 @@ class Voyager
 //                }
 //            }
 //        }
-        if(File::exists(storage_path('app/version.txt'))) {
-            $file = File::get(storage_path('app/version.txt'));
+        if(File::exists(storage_path('version.txt'))) {
+            $file = File::get(storage_path('version.txt'));
             $this->version = $file;
         }
         else{
