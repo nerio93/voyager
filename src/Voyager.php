@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Lisandrop05\Voyager\Actions\DeleteAction;
@@ -297,20 +298,28 @@ class Voyager
             return;
         }
 
-        if ($this->filesystem->exists(base_path('composer.lock'))) {
-            // Get the composer.lock file
-            $file = json_decode(
-                $this->filesystem->get(base_path('composer.lock'))
-            );
-
-            // Loop through all the packages and get the version of voyager
-            foreach ($file->packages as $package) {
-                if ($package->name == 'lisandrop05/voyager') {
-                    $this->version = $package->version;
-                    break;
-                }
-            }
+//        if ($this->filesystem->exists(base_path('composer.lock'))) {
+//            // Get the composer.lock file
+//            $file = json_decode(
+//                $this->filesystem->get(base_path('composer.lock'))
+//            );
+//
+//            // Loop through all the packages and get the version of voyager
+//            foreach ($file->packages as $package) {
+//                if ($package->name == 'lisandrop05/voyager') {
+//                    $this->version = $package->version;
+//                    break;
+//                }
+//            }
+//        }
+        if(File::exists(storage_path('app/version.txt'))) {
+            $file = File::get(storage_path('app/version.txt'));
+            $this->version = $file;
         }
+        else{
+            $this->version = '1.0.0';
+        }
+        return $this->version;
     }
 
     /**
